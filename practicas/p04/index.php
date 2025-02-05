@@ -212,5 +212,25 @@
         // Liberar variables
         unset($a, $b, $c, $d, $e, $f);
     ?>
+
+    <!-- Ejercicio 7 -->
+    <h2>Ejercicio 7</h2>
+    <p>Usando la variable predefinida $_SERVER, determina lo siguiente:</p>
+    <?php
+        echo "<h4>Información del Servidor y Cliente:</h4>";
+
+        // a. Versión de Apache y PHP
+        echo "<h4>a. Versión de Apache y PHP:</h4>";
+        echo "Apache: " . $_SERVER['SERVER_SOFTWARE'] . "<br>";
+        echo "PHP: " . phpversion() . "<br>";
+
+        // b. Nombre del sistema operativo del servidor
+        echo "<h4>b. Nombre del sistema operativo del servidor:</h4>";
+        echo "Sistema Operativo: " . PHP_OS . "<br>";
+
+        // c. Idioma del navegador del cliente
+        echo "<h4>c. Idioma del navegador del cliente:</h4>";
+        echo "Idioma: " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br>";
+    ?>
 </body>
 </html>
