@@ -76,5 +76,59 @@
         // Liberar variables
         unset($a, $b, $c);
     ?>
+
+    <!-- Ejercicio 3 -->
+    <h2>Ejercicio 3</h2>
+    <p>Muestra el contenido de cada variable inmediatamente después de cada asignación.</p>
+    <?php
+        // Primera asignación
+        $a = "PHP5";
+        echo '<h4>Después de <code>$a = "PHP5";</code></h4>';
+        echo '<ul><li>$a: '; var_dump($a); echo '</li></ul>';
+
+        // Asignación por referencia en un array
+        $z[] = &$a;
+        echo '<h4>Después de <code>$z[] = &$a;</code></h4>';
+        echo '<ul><li>$z: '; print_r($z); echo '</li></ul>';
+
+        // Nueva asignación a $b
+        $b = "5a version de PHP";
+        echo '<h4>Después de <code>$b = "5a version de PHP";</code></h4>';
+        echo '<ul><li>$b: '; var_dump($b); echo '</li></ul>';
+
+        // Operación con $c (Se convierte $b a número antes de multiplicar para evitar error "A non-numeric value encountered")
+        $c = intval($b) * 10;
+        echo '<h4>Después de <code>$c = $b * 10;</code></h4>';
+        echo '<ul><li>$c: '; var_dump($c); echo '</li></ul>';
+
+        // Concatenación en $a
+        $a .= $b;
+        echo '<h4>Después de <code>$a .= $b;</code></h4>';
+        echo '<ul><li>$a: '; var_dump($a); echo '</li>';
+        echo '<li>$z: '; print_r($z); echo '</li></ul>';
+
+        // Multiplicación en $b
+        $b = intval($b) * $c;
+        echo '<h4>Después de <code>$b *= $c;</code></h4>';
+        echo '<ul><li>$b: '; var_dump($b); echo '</li></ul>';
+
+        // Cambio en el array $z
+        $z[0] = "MySQL";
+        echo '<h4>Después de <code>$z[0] = "MySQL";</code></h4>';
+        echo '<ul><li>$z: '; print_r($z); echo '</li>';
+        echo '<li>$a: '; var_dump($a); echo '</li></ul>';
+
+        // Explicación del comportamiento
+        echo '<h4>Explicación:</h4>';
+        echo '<p>1. $a = "PHP5";	Se asigna la cadena "PHP5" a $a.</p>';
+        echo '<p>2. $z[] = &$a;	$z[0] se vuelve una referencia a $a.</p>';
+        echo '<p>3. $b = "5a version de PHP";	$b se convierte en una cadena de 17 caracteres.</p>';
+        echo '<p>4. $c = $b * 10;	PHP extrae 5 de $b y hace 5 * 10 = 50.</p>';
+        echo '<p>5. $a .= $b;	Se concatena $b a $a, cambiando también $z[0].</p>';
+        echo '<p>6. $b *= $c;	PHP ya trata $b como 5, por lo que multiplica 5 * 50 = 250, y $b se convierte en un número entero (int).</p>';    
+        echo '<p>7. $z[0] = "MySQL";	Como $z[0] es una referencia a $a, al cambiar $z[0] a "MySQL", $a también se actualiza automáticamente a "MySQL".</p>';            
+        // Liberar variables
+        unset($a, $b, $c, $z);
+    ?>
 </body>
 </html>
