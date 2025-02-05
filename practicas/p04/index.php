@@ -126,7 +126,17 @@
         echo '<p>4. $c = $b * 10;	PHP extrae 5 de $b y hace 5 * 10 = 50.</p>';
         echo '<p>5. $a .= $b;	Se concatena $b a $a, cambiando también $z[0].</p>';
         echo '<p>6. $b *= $c;	PHP ya trata $b como 5, por lo que multiplica 5 * 50 = 250, y $b se convierte en un número entero (int).</p>';    
-        echo '<p>7. $z[0] = "MySQL";	Como $z[0] es una referencia a $a, al cambiar $z[0] a "MySQL", $a también se actualiza automáticamente a "MySQL".</p>';            
+        echo '<p>7. $z[0] = "MySQL";	Como $z[0] es una referencia a $a, al cambiar $z[0] a "MySQL", $a también se actualiza automáticamente a "MySQL".</p>';  
+        
+        // EJERCICIO 4
+        echo '<h2>Ejercicio 4 (Usando $GLOBALS)</h2>';
+        echo '<h4>Valores de las variables usando $GLOBALS:</h4>';
+        echo '<ul>';
+        echo '<li>$a: '; var_dump($GLOBALS['a']); echo '</li>';
+        echo '<li>$b: '; var_dump($GLOBALS['b']); echo '</li>';
+        echo '<li>$c: '; var_dump($GLOBALS['c']); echo '</li>';
+        echo '<li>$z: '; print_r($GLOBALS['z']); echo '</li>';
+        echo '</ul>';
         // Liberar variables
         unset($a, $b, $c, $z);
     ?>
