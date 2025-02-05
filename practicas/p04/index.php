@@ -137,8 +137,44 @@
         echo '<li>$c: '; var_dump($GLOBALS['c']); echo '</li>';
         echo '<li>$z: '; print_r($GLOBALS['z']); echo '</li>';
         echo '</ul>';
+
         // Liberar variables
         unset($a, $b, $c, $z);
+    ?>
+
+    <!-- Ejercicio 5 -->
+    <h2>Ejercicio 5</h2>
+    <p>Dar el valor de las variables $a, $b, $c al final del siguiente script:</p>
+    <?php
+        // Primera asignación
+        $a = "7 personas";
+        echo '<h4>Después de <code>$a = "7 personas";</code></h4>';
+        echo '<ul><li>$a: '; var_dump($a); echo '</li></ul>';
+
+        // Conversión a entero (integer cast)
+        $b = (integer) $a;
+        echo '<h4>Después de <code>$b = (integer) $a;</code></h4>';
+        echo '<ul><li>$b: '; var_dump($b); echo '</li></ul>';
+
+        // Nueva asignación a $a
+        $a = "9E3";
+        echo '<h4>Después de <code>$a = "9E3";</code></h4>';
+        echo '<ul><li>$a: '; var_dump($a); echo '</li></ul>';
+
+        // Conversión a número de punto flotante (double cast)
+        $c = (double) $a;
+        echo '<h4>Después de <code>$c = (double) $a;</code></h4>';
+        echo '<ul><li>$c: '; var_dump($c); echo '</li></ul>';
+
+        // Explicación del comportamiento
+        echo '<h4>Explicación:</h4>';
+        echo '<p>1. <code>$a = "7 personas";</code> Se asigna una cadena de texto.</p>';
+        echo '<p>2. <code>$b = (integer) $a;</code> PHP extrae el primer número de la cadena y lo convierte en entero. $b = 7.</p>';
+        echo '<p>3. <code>$a = "9E3";</code> Ahora $a contiene la notación científica de 9000.</p>';
+        echo '<p>4. <code>$c = (double) $a;</code> Se convierte la cadena en un número flotante, obteniendo $c = 9000.0.</p>';
+
+        // Liberar variables
+        unset($a, $b, $c);
     ?>
 </body>
 </html>
