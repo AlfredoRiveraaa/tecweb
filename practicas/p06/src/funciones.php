@@ -124,3 +124,45 @@ function validar_usuario($edad, $sexo) {
 
 ?>
 
+<?php
+
+$parqueVehicular = [
+    "UBN6338" => [
+        "Auto" => ["marca" => "HONDA", "modelo" => 2020, "tipo" => "camioneta"],
+        "Propietario" => ["nombre" => "Alfonzo Esparza", "ciudad" => "Puebla, Pue.", "direccion" => "C.U., Jardines de San Manuel"]
+    ],
+    "UBN6339" => [
+        "Auto" => ["marca" => "MAZDA", "modelo" => 2019, "tipo" => "sedan"],
+        "Propietario" => ["nombre" => "Ma. del Consuelo Molina", "ciudad" => "Puebla, Pue.", "direccion" => "97 oriente"]
+    ],
+    "XYZ1234" => [
+        "Auto" => ["marca" => "TOYOTA", "modelo" => 2021, "tipo" => "sedan"],
+        "Propietario" => ["nombre" => "Luis Hernández", "ciudad" => "Monterrey, NL", "direccion" => "Av. Revolución 123"]
+    ],
+    // Agregar 12 autos más aquí...
+];
+
+function mostrar_todos_los_vehiculos() {
+    global $parqueVehicular;
+    echo "<pre>";
+    print_r($parqueVehicular);
+    echo "</pre>";
+}
+
+function buscar_vehiculo_por_matricula($matricula) {
+    global $parqueVehicular;
+    if (isset($parqueVehicular[$matricula])) {
+        $resultado = [
+            $matricula => $parqueVehicular[$matricula] // Incluye la matrícula como clave
+        ];
+        
+        echo "<pre>";
+        print_r($resultado);
+        echo "</pre>";
+    } else {
+        echo "<p>No se encontró un auto con la matrícula $matricula.</p>";
+    }
+}
+
+?>
+

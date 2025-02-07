@@ -104,5 +104,35 @@
             validar_usuario($edad, $sexo);
         }
     ?>
+
+    <h2>Ejercicio 6</h2>
+    <p>Consulta de parque vehicular.</p>
+
+    <h3>Buscar vehículo por matrícula</h3>
+    <form action="index.php" method="get">
+        <label for="matricula">Matrícula:</label>
+        <input type="text" name="matricula" id="matricula" required>
+        <input type="submit" value="Buscar">
+    </form>
+
+    <?php
+        require_once __DIR__ . "/src/funciones.php";
+
+        if (isset($_GET["matricula"])) {
+            $matricula = strtoupper($_GET["matricula"]); // Convertir a mayúsculas para evitar errores
+            buscar_vehiculo_por_matricula($matricula);
+        }
+    ?>
+
+    <h3>Mostrar todos los vehículos</h3>
+    <form action="index.php" method="post">
+        <input type="submit" name="mostrar_todos" value="Mostrar Todos">
+    </form>
+
+    <?php
+        if (isset($_POST["mostrar_todos"])) {
+            mostrar_todos_los_vehiculos();
+        }
+    ?>
 </body>
 </html>
