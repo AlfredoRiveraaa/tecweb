@@ -77,5 +77,32 @@
     <?php
         mostrar_tabla_ascii();
     ?>
+
+    <h2>Ejercicio 5</h2>
+    <p>Ingrese su edad y sexo para verificar si está en el rango permitido.</p>
+
+    <form action="index.php" method="post">
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad" required><br><br>
+
+        <label for="sexo">Sexo:</label>
+        <select name="sexo" id="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            require_once __DIR__ . "/src/funciones.php";
+
+            $edad = $_POST["edad"];
+            $sexo = $_POST["sexo"];
+
+            validar_usuario($edad, $sexo);
+        }
+    ?>
 </body>
 </html>
