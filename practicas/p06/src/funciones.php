@@ -44,3 +44,42 @@ function generar_secuencia() {
 }
 
 ?>
+
+<?php
+
+function encontrar_multiplo_while($multiplo) {
+    if (!is_numeric($multiplo) || $multiplo <= 0) {
+        return "Por favor, proporciona un número válido mayor que 0.";
+    }
+
+    $contador = 0;
+    $numero = 0;
+
+    while (true) {
+        $contador++;
+        $numero = rand(100, 999);
+        if ($numero % $multiplo == 0) {
+            break;
+        }
+    }
+
+    return "Primer múltiplo de $multiplo encontrado con WHILE: $numero en $contador intentos.";
+}
+
+function encontrar_multiplo_dowhile($multiplo) {
+    if (!is_numeric($multiplo) || $multiplo <= 0) {
+        return "Por favor, proporciona un número válido mayor que 0.";
+    }
+
+    $contador = 0;
+    $numero = 0;
+
+    do {
+        $contador++;
+        $numero = rand(100, 999);
+    } while ($numero % $multiplo != 0);
+
+    return "Primer múltiplo de $multiplo encontrado con DO-WHILE: $numero en $contador intentos.";
+}
+
+?>

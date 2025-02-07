@@ -52,5 +52,23 @@
 
         echo "<p><strong>{$resultado['total_numeros']} números obtenidos en {$resultado['iteraciones']} iteraciones</strong></p>";
     ?>
+
+    <h2>Ejercicio 3</h2>
+    <p>Encontrar el primer número aleatorio que sea múltiplo de un número dado.</p>
+
+    <form action="index.php" method="get">
+        <label for="multiplo">Número Múltiplo:</label>
+        <input type="number" name="multiplo" id="multiplo" required>
+        <input type="submit" value="Buscar">
+    </form>
+
+    <?php
+        if (isset($_GET['multiplo'])) {
+            $multiplo = $_GET['multiplo'];
+
+            echo "<p>" . encontrar_multiplo_while($multiplo) . "</p>";
+            echo "<p>" . encontrar_multiplo_dowhile($multiplo) . "</p>";
+        }
+    ?>
 </body>
 </html>
