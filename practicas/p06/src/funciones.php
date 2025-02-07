@@ -139,7 +139,54 @@ $parqueVehicular = [
         "Auto" => ["marca" => "TOYOTA", "modelo" => 2021, "tipo" => "sedan"],
         "Propietario" => ["nombre" => "Luis Hernández", "ciudad" => "Monterrey, NL", "direccion" => "Av. Revolución 123"]
     ],
-    // Agregar 12 autos más aquí...
+    "ABC5678" => [
+        "Auto" => ["marca" => "FORD", "modelo" => 2018, "tipo" => "pickup"],
+        "Propietario" => ["nombre" => "José Martínez", "ciudad" => "Guadalajara, JAL", "direccion" => "Calle 5 de Mayo"]
+    ],
+    "DEF9101" => [
+        "Auto" => ["marca" => "CHEVROLET", "modelo" => 2017, "tipo" => "SUV"],
+        "Propietario" => ["nombre" => "María González", "ciudad" => "CDMX", "direccion" => "Insurgentes Sur 890"]
+    ],
+    "GHI1123" => [
+        "Auto" => ["marca" => "VOLKSWAGEN", "modelo" => 2022, "tipo" => "hatchback"],
+        "Propietario" => ["nombre" => "Carlos Ramírez", "ciudad" => "Toluca, MEX", "direccion" => "Av. Morelos 300"]
+    ],
+    "JKL4567" => [
+        "Auto" => ["marca" => "NISSAN", "modelo" => 2020, "tipo" => "sedan"],
+        "Propietario" => ["nombre" => "Laura Fernández", "ciudad" => "Veracruz, VER", "direccion" => "Malecón del Río"]
+    ],
+    "MNO8910" => [
+        "Auto" => ["marca" => "HYUNDAI", "modelo" => 2021, "tipo" => "crossover"],
+        "Propietario" => ["nombre" => "Ricardo Torres", "ciudad" => "Mérida, YUC", "direccion" => "Calle 60 Centro"]
+    ],
+    "PQR3456" => [
+        "Auto" => ["marca" => "KIA", "modelo" => 2019, "tipo" => "compacto"],
+        "Propietario" => ["nombre" => "Diana López", "ciudad" => "Tijuana, BC", "direccion" => "Blvd. Agua Caliente"]
+    ],
+    "STU7891" => [
+        "Auto" => ["marca" => "BMW", "modelo" => 2023, "tipo" => "sedan"],
+        "Propietario" => ["nombre" => "Fernando Castillo", "ciudad" => "Monterrey, NL", "direccion" => "San Pedro Garza García"]
+    ],
+    "VWX2345" => [
+        "Auto" => ["marca" => "MERCEDES", "modelo" => 2022, "tipo" => "coupe"],
+        "Propietario" => ["nombre" => "Andrea Pérez", "ciudad" => "Querétaro, QRO", "direccion" => "Av. Constituyentes"]
+    ],
+    "YZA6789" => [
+        "Auto" => ["marca" => "AUDI", "modelo" => 2021, "tipo" => "SUV"],
+        "Propietario" => ["nombre" => "Juan Robles", "ciudad" => "León, GTO", "direccion" => "Calle Madero"]
+    ],
+    "BCD1234" => [
+        "Auto" => ["marca" => "TESLA", "modelo" => 2023, "tipo" => "eléctrico"],
+        "Propietario" => ["nombre" => "Silvia Navarro", "ciudad" => "San Luis Potosí, SLP", "direccion" => "Plaza de Armas"]
+    ],
+    "EFG5678" => [
+        "Auto" => ["marca" => "SUBARU", "modelo" => 2020, "tipo" => "SUV"],
+        "Propietario" => ["nombre" => "Ernesto Salgado", "ciudad" => "Chihuahua, CHIH", "direccion" => "Av. Tecnológico"]
+    ],
+    "HIJ9101" => [
+        "Auto" => ["marca" => "DODGE", "modelo" => 2018, "tipo" => "pickup"],
+        "Propietario" => ["nombre" => "Mónica Ríos", "ciudad" => "Hermosillo, SON", "direccion" => "Blvd. Kino"]
+    ]
 ];
 
 function mostrar_todos_los_vehiculos() {
