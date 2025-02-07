@@ -83,3 +83,31 @@ function encontrar_multiplo_dowhile($multiplo) {
 }
 
 ?>
+
+<?php
+
+function generar_arreglo_ascii() {
+    $arreglo = [];
+
+    // Generar arreglo con índices ASCII del 97 al 122
+    for ($i = 97; $i <= 122; $i++) {
+        $arreglo[$i] = chr($i);
+    }
+
+    return $arreglo;
+}
+
+function mostrar_tabla_ascii() {
+    $arreglo = generar_arreglo_ascii();
+
+    echo "<table border='1'>";
+    echo "<tr><th>Índice ASCII</th><th>Letra</th></tr>";
+
+    foreach ($arreglo as $key => $value) {
+        echo "<tr><td>$key</td><td>$value</td></tr>";
+    }
+
+    echo "</table>";
+}
+
+?>

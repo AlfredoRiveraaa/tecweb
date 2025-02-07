@@ -70,5 +70,12 @@
             echo "<p>" . encontrar_multiplo_dowhile($multiplo) . "</p>";
         }
     ?>
+
+    <h2>Ejercicio 4</h2>
+    <p>Arreglo con índices ASCII de la ‘a’ a la ‘z’.</p>
+
+    <?php
+        mostrar_tabla_ascii();
+    ?>
 </body>
 </html>
