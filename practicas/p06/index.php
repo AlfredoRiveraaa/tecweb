@@ -32,5 +32,25 @@
             echo $_POST["email"];
         }
     ?>
+
+    <h2>Ejercicio 2</h2>
+    <p>Crea un programa para la generación repetitiva de 3 números aleatorios hasta obtener una secuencia compuesta por: impar, par, impar</p>
+
+    <?php
+        $resultado = generar_secuencia();
+        echo "<h3>Secuencias generadas:</h3>";
+
+        echo "<table border='1'>";
+        foreach ($resultado['matriz'] as $fila) {
+            echo "<tr>";
+            foreach ($fila as $num) {
+                echo "<td>$num</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+
+        echo "<p><strong>{$resultado['total_numeros']} números obtenidos en {$resultado['iteraciones']} iteraciones</strong></p>";
+    ?>
 </body>
 </html>

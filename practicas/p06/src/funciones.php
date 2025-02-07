@@ -12,3 +12,35 @@ function es_multiplo7y5($num) {
 }
 
 ?>
+
+<?php
+
+function generar_secuencia() {
+    $matriz = [];
+    $iteraciones = 0;
+    
+    while (true) {
+        $iteraciones++;
+        $num1 = rand(100, 999);
+        $num2 = rand(100, 999);
+        $num3 = rand(100, 999);
+
+        $matriz[] = [$num1, $num2, $num3];
+
+        // Verificar si cumple con la secuencia impar-par-impar
+        if ($num1 % 2 != 0 && $num2 % 2 == 0 && $num3 % 2 != 0) {
+            break;
+        }
+    }
+
+    // Contar la cantidad total de números generados
+    $total_numeros = count($matriz) * 3;
+
+    return [
+        'matriz' => $matriz,
+        'iteraciones' => $iteraciones,
+        'total_numeros' => $total_numeros
+    ];
+}
+
+?>
