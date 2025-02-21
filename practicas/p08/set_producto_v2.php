@@ -35,8 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("<p>Error: El producto ya existe en la base de datos.</p><a href='formulario_productos.html'>Volver al formulario</a>");
     }
 
-    // Insertar el nuevo producto
-    $query = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen, eliminado) VALUES (?, ?, ?, ?, ?, ?, ?, 0)";
+    // Comentar la query anterior
+    // $query = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen, eliminado) VALUES (?, ?, ?, ?, ?, ?, ?, 0)";
+
+    // Crear la nueva query que usa column names y no usa id ni eliminado (se establece 0 por defecto para eliminado)
+    $query = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    // Preparar la consulta
     $stmt = $link->prepare($query);
     $stmt->bind_param("sssdsis", $nombre, $marca, $modelo, $precio, $detalles, $unidades, $imagen);
 
