@@ -39,7 +39,7 @@
     <p>Proporcionar los valores de $a, $b, $c como sigue:</p>
     <p>$a = “ManejadorSQL”;</p>
     <p>$b = 'MySQL’;</p>
-    <p>$c = &$a;</p>
+    <p>$c = &amp;$a;</p>
     <?php
         // Primera asignación de valores
         $a = "ManejadorSQL";
@@ -54,8 +54,8 @@
         echo '</ul>';
 
         echo '<h4>Agrega al código las siguientes asignaciones:</h4>';
-        echo '<p>$a = “PHP server”;</p>';
-        echo '<p>$b = &$a;</p>';
+        echo '<p>$a = "PHP server";</p>';
+        echo '<p>$b = &amp;$a;</p>';
         // Segunda asignación de valores
         $a = "PHP server";
         $b = &$a; // Ahora $b también referencia a $a
@@ -71,7 +71,7 @@
         echo '<h4>Explicación:</h4>';
         echo '<p>Inicialmente, $c es una referencia a $a, lo que significa que cualquier cambio en $a también afectará a $c.</p>';
         echo '<p>Cuando reasignamos $a a "PHP server", tanto $a como $c reflejan el nuevo valor, ya que $c sigue siendo una referencia a $a.</p>';
-        echo '<p>Luego, al hacer <code>$b = &$a;</code>, ahora $b también es una referencia a $a, por lo que cualquier cambio en $a afectará también a $b y $c.</p>';
+        echo '<p>Luego, al hacer <code>$b = &amp;$a;</code>, ahora $b también es una referencia a $a, por lo que cualquier cambio en $a afectará también a $b y $c.</p>';
 
         // Liberar variables
         unset($a, $b, $c);
@@ -88,7 +88,7 @@
 
         // Asignación por referencia en un array
         $z[] = &$a;
-        echo '<h4>Después de <code>$z[] = &$a;</code></h4>';
+        echo '<h4>Después de <code>$z[] = &amp;$a;</code></h4>';
         echo '<ul><li>$z: '; print_r($z); echo '</li></ul>';
 
         // Nueva asignación a $b
@@ -121,7 +121,7 @@
         // Explicación del comportamiento
         echo '<h4>Explicación:</h4>';
         echo '<p>1. $a = "PHP5";	Se asigna la cadena "PHP5" a $a.</p>';
-        echo '<p>2. $z[] = &$a;	$z[0] se vuelve una referencia a $a.</p>';
+        echo '<p>2. $z[] = &amp;$a;	$z[0] se vuelve una referencia a $a.</p>';
         echo '<p>3. $b = "5a version de PHP";	$b se convierte en una cadena de 17 caracteres.</p>';
         echo '<p>4. $c = $b * 10;	PHP extrae 5 de $b y hace 5 * 10 = 50.</p>';
         echo '<p>5. $a .= $b;	Se concatena $b a $a, cambiando también $z[0].</p>';
@@ -216,21 +216,29 @@
     <!-- Ejercicio 7 -->
     <h2>Ejercicio 7</h2>
     <p>Usando la variable predefinida $_SERVER, determina lo siguiente:</p>
+
     <?php
         echo "<h4>Información del Servidor y Cliente:</h4>";
 
         // a. Versión de Apache y PHP
         echo "<h4>a. Versión de Apache y PHP:</h4>";
-        echo "Apache: " . $_SERVER['SERVER_SOFTWARE'] . "<br>";
-        echo "PHP: " . phpversion() . "<br>";
+        echo "<p>Apache: " . $_SERVER['SERVER_SOFTWARE'] . "</p>";
+        echo "<p>PHP: " . phpversion() . "</p>";
 
         // b. Nombre del sistema operativo del servidor
         echo "<h4>b. Nombre del sistema operativo del servidor:</h4>";
-        echo "Sistema Operativo: " . PHP_OS . "<br>";
+        echo "<p>Sistema Operativo: " . PHP_OS . "</p>";
 
         // c. Idioma del navegador del cliente
         echo "<h4>c. Idioma del navegador del cliente:</h4>";
-        echo "Idioma: " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br>";
+        echo "<p>Idioma: " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "</p>";
     ?>
+
+    <div>
+        <p>
+            <a href="https://validator.w3.org/markup/check?uri=referer"><img
+            src="https://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+        </p>
+    </div>
 </body>
 </html>
