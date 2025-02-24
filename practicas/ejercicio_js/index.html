@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <script src="./src/main.js" defer></script>
+</head>
+<body>
+    <h1>Hola Mundo de JavaScript</h1>
+
+    <div id="nombre"></div>
+    <div id="edad"></div>
+    
+    <input id="clickMe" type="button" value="clickme" onclick="getDatos();" />
+
+    <hr>
+
+    <!-- Ejemplo 1: Hola Mundo -->
+    <h2>Ejemplo 1: Hola Mundo</h2>
+    <div id="output1"></div>
+    <button onclick="ejemplo1()">Ejecutar Ejemplo 1</button>
+
+    <hr>
+
+    <!-- Ejemplo 2: Variables en JavaScript -->
+    <h2>Ejemplo 2: Variables en JavaScript</h2>
+    <div id="output2"></div>
+    <button onclick="ejemplo2()">Ejecutar Ejemplo 2</button>
+
+    <hr>
+
+    <!-- Ejemplo 3: Entrada de usuario con prompt -->
+    <h2>Ejemplo 3: Entrada de usuario con prompt</h2>
+    <div id="output3"></div>
+    <button onclick="ejemplo3()">Ejecutar Ejemplo 3</button>
+
+    <hr>
+
+    <!-- Ejemplo 4: Suma y producto de dos números -->
+    <h2>Ejemplo 4: Suma y producto de dos números</h2>
+    <div id="output4"></div>
+    <button onclick="ejemplo4()">Ejecutar Ejemplo 4</button>
+
+    <hr>
+
+    <!-- Ejemplo 5: Verificación de nota aprobatoria -->
+    <h2>Ejemplo 5: Verificación de nota aprobatoria</h2>
+    <div id="output5"></div>
+    <button onclick="ejemplo5()">Ejecutar Ejemplo 5</button>
+
+    <hr>
+
+    <!-- Ejemplo 6: Determinar el número mayor -->
+    <h2>Ejemplo 6: Determinar el número mayor</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var num1,num2;
+        num1 = prompt('Ingresa el primer número:', '');
+        num2 = prompt('Ingresa el segundo número:', '');
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+        if (num1 > num2) {
+            document.write('El mayor es ' + num1);
+        } else {
+            document.write('El mayor es ' + num2);
+        }
+    </script>
+    -->
+
+    <div id="output6"></div>
+    <button onclick="ejemplo6()">Ejecutar Ejemplo 6</button>
+
+    <hr>
+
+    <!-- Ejemplo 7: Promedio de notas y clasificación -->
+    <h2>Ejemplo 7: Promedio de notas</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var nota1,nota2,nota3;
+        nota1 = prompt('Ingresa 1ra. nota:', '');
+        nota2 = prompt('Ingresa 2da. nota:', '');
+        nota3 = prompt('Ingresa 3ra. nota:', '');
+        nota1 = parseInt(nota1);
+        nota2 = parseInt(nota2);
+        nota3 = parseInt(nota3);
+        var pro = (nota1 + nota2 + nota3) / 3;
+        if (pro >= 7) {
+            document.write('Aprobado');
+        } else {
+            if (pro >= 4) {
+                document.write('Regular');
+            } else {
+                document.write('Reprobado');
+            }
+        }
+    </script>
+    -->
+
+    <div id="output7"></div>
+    <button onclick="ejemplo7()">Ejecutar Ejemplo 7</button>
+
+    <hr>
+
+    <!-- Ejemplo 8: Conversión de número a texto -->
+    <h2>Ejemplo 8: Números a texto</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var valor;
+        valor = prompt('Ingresar un valor comprendido entre 1 y 5:', '');
+        valor = parseInt(valor);
+        switch (valor) {
+            case 1: document.write('Uno'); break;
+            case 2: document.write('Dos'); break;
+            case 3: document.write('Tres'); break;
+            case 4: document.write('Cuatro'); break;
+            case 5: document.write('Cinco'); break;
+            default: document.write('Debe ingresar un valor comprendido entre 1 y 5.');
+        }
+    </script>
+    -->
+
+    <div id="output8"></div>
+    <button onclick="ejemplo8()">Ejecutar Ejemplo 8</button>
+
+    <hr>
+
+    <!-- Ejemplo 9: Cambio de color de fondo -->
+    <h2>Ejemplo 9: Cambiar color de fondo</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var col;
+        col = prompt('Ingresa el color con que quieres pintar el fondo de la ventana (rojo, verde, azul)', '');
+        switch (col) {
+            case 'rojo': document.bgColor='#ff0000'; break;
+            case 'verde': document.bgColor='#00ff00'; break;
+            case 'azul': document.bgColor='#0000ff'; break;
+        }
+    </script>
+    -->
+
+    <button onclick="ejemplo9()">Ejecutar Ejemplo 9</button>
+
+    <hr>
+
+    <!-- Ejemplo 10: Contador del 1 al 100 -->
+    <h2>Ejemplo 10: Contador del 1 al 100</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var x;
+        x=1;
+        while (x<=100) {
+            document.write(x);
+            document.write('<br>');
+            x=x+1;
+        }
+    </script>
+    -->
+
+    <button onclick="ejemplo10()">Ejecutar Ejemplo 10</button>
+    <div id="output10"></div>
+
+    <hr>
+
+    <!-- Ejemplo 11: Suma de 5 valores ingresados -->
+    <h2>Ejemplo 11: Suma de 5 valores ingresados</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var x=1;
+        var suma=0;
+        var valor;
+        while (x<=5){
+            valor = prompt('Ingresa el valor:', '');
+            valor = parseInt(valor);
+            suma = suma+valor;
+            x = x+1;
+        }
+        document.write("La suma de los valores es "+suma+"<br>");
+    </script>
+    -->
+
+    <button onclick="ejemplo11()">Ejecutar Ejemplo 11</button>
+    <div id="output11"></div>
+
+    <hr>
+
+    <!-- Ejemplo 12: Validar cantidad de dígitos de un número -->
+    <h2>Ejemplo 12: Validar cantidad de dígitos de un número</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var valor;
+        do {
+            valor = prompt('Ingresa un valor entre 0 y 999:', '');
+            valor = parseInt(valor);
+            document.write('El valor '+valor+' tiene ');
+            if (valor < 10)
+                document.write('Tiene 1 dígitos')
+            else if (valor < 100) {
+                document.write('Tiene 2 dígitos');
+            }
+            else {
+                document.write('Tiene 3 dígitos');
+            }
+            document.write('<br>');
+        } while(valor != 0);
+    </script>
+    -->
+
+    <button onclick="ejemplo12()">Ejecutar Ejemplo 12</button>
+    <div id="output12"></div>
+
+    <hr>
+
+    <!-- Ejemplo 13: Imprimir números del 1 al 10 -->
+    <h2>Ejemplo 13: Imprimir números del 1 al 10</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        var f;
+        for(f = 1; f <= 10; f++) {
+            document.write(f + " ");
+        }
+    </script>
+    -->
+
+    <button onclick="ejemplo13()">Ejecutar Ejemplo 13</button>
+    <div id="output13"></div>
+
+    <hr>
+
+    <!-- Ejemplo 14: Mensajes repetidos en pantalla -->
+    <h2>Ejemplo 14: Mensajes repetidos en pantalla</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        document.write("Cuidado<br>");
+        document.write("Ingresa tu documento correctamente<br>");
+        document.write("Cuidado<br>");
+        document.write("Ingresa tu documento correctamente<br>");
+        document.write("Cuidado<br>");
+        document.write("Ingresa tu documento correctamente<br>");
+    </script>
+    -->
+
+    <button onclick="ejemplo14()">Ejecutar Ejemplo 14</button>
+    <div id="output14"></div>
+
+    <hr>
+
+    <!-- Ejemplo 15: Función para mostrar el mensaje -->
+    <h2>Ejemplo 15: Función para mostrar el mensaje repetidamente (está implementado diferente)</h2>
+
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        function mostrarMensaje() {
+            document.write("Cuidado<br>");
+            document.write("Ingresa tu documento correctamente<br>");
+        }
+        mostrarMensaje();
+        mostrarMensaje();
+        mostrarMensaje();
+    </script>
+    -->
+
+    <button onclick="ejecutarMensaje()">Ejecutar Ejemplo 15</button>
+    <div id="output15"></div>
+  
+    <hr>
+
+    <!-- Ejemplo 16: Función para mostrar un rango de números -->
+    <h2>Ejemplo 16: Mostrar un rango de números</h2>
+    
+    <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        function mostrarRango(x1, x2) {
+            var inicio;
+            for(inicio = x1; inicio <= x2; inicio++) {
+                document.write(inicio + ' ');
+            }
+        }
+        var valor1, valor2;
+        valor1 = prompt('Ingresa el valor inferior:', '');
+        valor1 = parseInt(valor1);
+        valor2 = prompt('Ingresa el valor superior:', '');
+        valor2 = parseInt(valor2);
+        mostrarRango(valor1, valor2);
+    </script>
+    -->
+    
+    <button onclick="ejecutarRango()">Ejecutar Ejemplo 16</button>
+    <div id="output16"></div> <!-- Aquí se mostrará el rango -->
+    
+    <hr>
+
+    <!-- Ejemplo 17: Convertir número a palabra en castellano -->
+    <h2>Ejemplo 17: Convertir número a palabra</h2>
+
+        <!-- Código original comentado -->
+    <!--
+    <script type="text/javascript">
+        function convertirCastellano(x) {
+            if(x==1)
+                return “uno”;
+            else
+                if(x==2)
+                    return “dos”;
+                else
+                    if(x==3)
+                        return “tres”;
+                    else
+                        if(x==4)
+                            return “cuatro”;
+                        else
+                            if(x==5)
+                                return “cinco”;
+                            else
+                                return “valor incorrecto”;
+
+        }
+        var valor = prompt(“Ingresa un valor entre 1 y 5”, “”);
+        valor = parseInt(valor);
+        var r = convertirCastellano(valor);
+        document.write(r);
+    </script>
+    -->
+    
+    <button onclick="convertirNumero()">Ejecutar Ejemplo 17</button>
+    <div id="output17"></div> <!-- Aquí se mostrará el resultado -->
+
+    <hr>
+
+    <!-- Ejemplo 18: Función para convertir un número a palabra -->
+    <h2>Ejemplo 18: Convertir un número a palabra en castellano</h2>
+
+        <!-- Código original comentado -->
+    <!--
+    function convertirCastellano(x) {
+        switch (x) {
+            case 1: return "uno";
+            case 2: return "dos";
+            case 3: return "tres";
+            case 4: return "cuatro";
+            case 5: return "cinco";
+            default: return "valor incorrecto";
+        }
+    }
+    -->
+    
+    <button onclick="convertirNumero()">Ejecutar Ejemplo 18</button>
+    <div id="output18"></div> <!-- Aquí se mostrará el resultado -->
+</body>
+</html>
