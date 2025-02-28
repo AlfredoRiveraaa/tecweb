@@ -1,9 +1,32 @@
+<?php
+// Conexión a la base de datos
+$link = mysqli_connect("localhost", "root", "eura12vl", "marketzone");
+// Chequea la conexión
+if ($link === false) {
+    die("ERROR: No pudo conectarse con la DB. " . mysqli_connect_error());
+}
+
+// Si el ID del producto está presente en la URL, obtenemos los datos del producto
+$product_id = isset($_GET['id']) ? $_GET['id'] : 0;
+$product_data = [];
+if ($product_id) {
+    $sql = "SELECT * FROM productos WHERE id = $product_id";
+    $result = mysqli_query($link, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $product_data = mysqli_fetch_assoc($result);
+    }
+}
+
+// Cierra la conexión
+mysqli_close($link);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Productos</title>
+    <title>Actualizar Producto</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -88,36 +111,44 @@
     </script>
 </head>
 <body>
-    <h2>Registro de Producto</h2>
-    <form action="set_producto_v2.php" method="post" onsubmit="return validarFormulario()">
+    <h2>Actualizar Producto</h2>
+    <?php if ($product_data): ?>
+    <form action="update_producto.php" method="post" onsubmit="return validarFormulario()">
+        <input type="hidden" name="id" value="<?= $product_data['id'] ?>">
+
         <label for="nombre">Nombre del Producto:</label>
-        <input type="text" id="nombre" name="nombre" value="<?= isset($_POST['nombre']) ? $_POST['nombre'] : '' ?>" required>
+        <input type="text" id="nombre" name="nombre" value="<?= $product_data['nombre'] ?>" required>
 
         <label for="marca">Marca:</label>
         <select id="marca" name="marca" required>
             <option value="">Seleccione una marca</option>
-            <option value="Samsung" <?= isset($_POST['marca']) && $_POST['marca'] == 'Samsung' ? 'selected' : '' ?>>Samsung</option>
-            <option value="Apple" <?= isset($_POST['marca']) && $_POST['marca'] == 'Apple' ? 'selected' : '' ?>>Apple</option>
-            <option value="Sony" <?= isset($_POST['marca']) && $_POST['marca'] == 'Sony' ? 'selected' : '' ?>>Sony</option>
-            <option value="Xiaomi" <?= isset($_POST['marca']) && $_POST['marca'] == 'Xiaomi' ? 'selected' : '' ?>>Xiaomi</option>
+            <option value="Samsung" <?= $product_data['marca'] == 'Samsung' ? 'selected' : '' ?>>Samsung</option>
+            <option value="Apple" <?= $product_data['marca'] == 'Apple' ? 'selected' : '' ?>>Apple</option>
+            <option value="Sony" <?= $product_data['marca'] == 'Sony' ? 'selected' : '' ?>>Sony</option>
+            <option value="Xiaomi" <?= $product_data['marca'] == 'Xiaomi' ? 'selected' : '' ?>>Xiaomi</option>
         </select>
 
         <label for="modelo">Modelo:</label>
-        <input type="text" id="modelo" name="modelo" value="<?= isset($_POST['modelo']) ? $_POST['modelo'] : '' ?>" required>
+        <input type="text" id="modelo" name="modelo" value="<?= $product_data['modelo'] ?>" required>
 
         <label for="precio">Precio:</label>
-        <input type="number" id="precio" name="precio" step="0.01" value="<?= isset($_POST['precio']) ? $_POST['precio'] : '' ?>" required>
+        <input type="number" id="precio" name="precio" step="0.01" value="<?= $product_data['precio'] ?>" required>
 
         <label for="detalles">Detalles:</label>
-        <textarea id="detalles" name="detalles" rows="3"><?= isset($_POST['detalles']) ? $_POST['detalles'] : '' ?></textarea>
+        <textarea id="detalles" name="detalles" rows="3"><?= $product_data['detalles'] ?></textarea>
 
         <label for="unidades">Unidades:</label>
-        <input type="number" id="unidades" name="unidades" min="0" value="<?= isset($_POST['unidades']) ? $_POST['unidades'] : '' ?>" required>
+        <input type="number" id="unidades" name="unidades" min="0" value="<?= $product_data['unidades'] ?>" required>
 
         <label for="imagen">URL de Imagen:</label>
-        <input type="text" id="imagen" name="imagen" value="<?= isset($_POST['imagen']) ? $_POST['imagen'] : '' ?>">
+        <input type="text" id="imagen" name="imagen" value="<?= $product_data['imagen'] ?>">
 
-        <button type="submit">Registrar Producto</button>
+        <button type="submit">Actualizar Producto</button>
     </form>
+    <?php else: ?>
+        <p>Producto no encontrado.</p>
+    <?php endif; ?>
+
+    <p><a href="get_productos_xhtml_v2.php">Ver todos los productos</a> | <a href="get_productos_vigentes_v2.php">Ver productos vigentes</a></p>
 </body>
 </html>
