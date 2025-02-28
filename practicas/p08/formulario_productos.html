@@ -22,7 +22,7 @@
         label {
             font-weight: bold;
         }
-        input, textarea {
+        input, textarea, select {
             width: 100%;
             margin-bottom: 10px;
             padding: 8px;
@@ -40,33 +40,67 @@
     </style>
     <script>
         function validarFormulario() {
-            let precio = document.getElementById("precio").value;
-            let unidades = document.getElementById("unidades").value;
-
-            if (precio <= 0) {
-                alert("El precio debe ser mayor a 0.");
+            let nombre = document.getElementById("nombre").value.trim();
+            let marca = document.getElementById("marca").value;
+            let modelo = document.getElementById("modelo").value.trim();
+            let precio = parseFloat(document.getElementById("precio").value);
+            let detalles = document.getElementById("detalles").value.trim();
+            let unidades = parseInt(document.getElementById("unidades").value);
+            let imagen = document.getElementById("imagen").value.trim();
+            let imagenPorDefecto = "img/default.png";
+            
+            if (nombre === "" || nombre.length > 100) {
+                alert("El nombre es obligatorio y debe tener 100 caracteres o menos.");
                 return false;
             }
-
-            if (unidades < 1) {
-                alert("Debe haber al menos una unidad disponible.");
+            
+            if (marca === "") {
+                alert("Debe seleccionar una marca.");
                 return false;
             }
-
+            
+            if (modelo === "" || modelo.length > 25 || !/^[a-zA-Z0-9 ]+$/.test(modelo)) {
+                alert("El modelo es obligatorio, debe ser alfanumérico y tener 25 caracteres o menos.");
+                return false;
+            }
+            
+            if (isNaN(precio) || precio <= 99.99) {
+                alert("El precio es obligatorio y debe ser mayor a 99.99.");
+                return false;
+            }
+            
+            if (detalles.length > 250) {
+                alert("Los detalles deben tener 250 caracteres o menos.");
+                return false;
+            }
+            
+            if (isNaN(unidades) || unidades < 0) {
+                alert("Las unidades deben ser un número mayor o igual a 0.");
+                return false;
+            }
+            
+            if (imagen === "") {
+                document.getElementById("imagen").value = imagenPorDefecto;
+            }
+            
             return true;
         }
     </script>
 </head>
 <body>
-
     <h2>Registro de Producto</h2>
-
     <form action="set_producto_v2.php" method="post" onsubmit="return validarFormulario()">
         <label for="nombre">Nombre del Producto:</label>
         <input type="text" id="nombre" name="nombre" required>
 
         <label for="marca">Marca:</label>
-        <input type="text" id="marca" name="marca" required>
+        <select id="marca" name="marca" required>
+            <option value="">Seleccione una marca</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Apple">Apple</option>
+            <option value="Sony">Sony</option>
+            <option value="Xiaomi">Xiaomi</option>
+        </select>
 
         <label for="modelo">Modelo:</label>
         <input type="text" id="modelo" name="modelo" required>
@@ -75,16 +109,15 @@
         <input type="number" id="precio" name="precio" step="0.01" required>
 
         <label for="detalles">Detalles:</label>
-        <textarea id="detalles" name="detalles" rows="3" required></textarea>
+        <textarea id="detalles" name="detalles" rows="3"></textarea>
 
         <label for="unidades">Unidades:</label>
-        <input type="number" id="unidades" name="unidades" min="1" required>
+        <input type="number" id="unidades" name="unidades" min="0" required>
 
         <label for="imagen">URL de Imagen:</label>
-        <input type="text" id="imagen" name="imagen" required>
+        <input type="text" id="imagen" name="imagen">
 
         <button type="submit">Registrar Producto</button>
     </form>
-
 </body>
 </html>
