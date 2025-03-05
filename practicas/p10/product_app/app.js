@@ -68,27 +68,27 @@ function buscarProducto(e) {
     client.send("query=" + encodeURIComponent(query));
 }
 
-// FUNCIÓN PARA MOSTRAR RESULTADOS EN LA TABLA
-function mostrarProductos(productos) {
-    let template = '';
-    
-    productos.forEach(producto => {
-        let descripcion = `
+    // FUNCIÓN PARA MOSTRAR RESULTADOS EN LA TABLA
+    function mostrarProductos(productos) {
+        let template = '';
+        
+        productos.forEach(producto => {
+            let descripcion = `
             <li>Precio: ${producto.precio}</li>
             <li>Unidades: ${producto.unidades}</li>
             <li>Modelo: ${producto.modelo}</li>
             <li>Marca: ${producto.marca}</li>
             <li>Detalles: ${producto.detalles}</li>
-        `;
-
-        template += `
+            `;
+        
+            template += `
             <tr>
                 <td>${producto.id}</td>
                 <td>${producto.nombre}</td>
                 <td><ul>${descripcion}</ul></td>
             </tr>
-        `;
-    });
+            `;
+        });
 
     document.getElementById("productos").innerHTML = template;
 }
@@ -97,21 +97,84 @@ function mostrarProductos(productos) {
 function agregarProducto(e) {
     e.preventDefault();
 
-    var productoJsonString = document.getElementById('description').value;
-    var finalJSON = JSON.parse(productoJsonString);
-    finalJSON['nombre'] = document.getElementById('name').value;
-    productoJsonString = JSON.stringify(finalJSON, null, 2);
+    // Obtener los valores de los campos del formulario
+    let nombre = document.getElementById("name").value.trim();
+    let marca = document.getElementById("marca").value;
+    let modelo = document.getElementById("modelo").value.trim();
+    let precio = parseFloat(document.getElementById("precio").value);
+    let detalles = document.getElementById("detalles").value.trim();
+    let unidades = parseInt(document.getElementById("unidades").value);
+    let imagen = document.getElementById("imagen").value.trim();
+    let imagenPorDefecto = "img/default.png";
 
+    // Validación de los datos antes de enviarlos
+    if (nombre === "" || nombre.length > 100) {
+        alert("El nombre es obligatorio y debe tener 100 caracteres o menos.");
+        return;
+    }
+
+    if (marca === "") {
+        alert("Debe seleccionar una marca.");
+        return;
+    }
+
+    if (modelo === "" || modelo.length > 25 || !/^[a-zA-Z0-9 ]+$/.test(modelo)) {
+        alert("El modelo es obligatorio, debe ser alfanumérico y tener 25 caracteres o menos.");
+        return;
+    }
+
+    if (isNaN(precio) || precio <= 99.99) {
+        alert("El precio es obligatorio y debe ser mayor a 99.99.");
+        return;
+    }
+
+    if (detalles.length > 250) {
+        alert("Los detalles deben tener 250 caracteres o menos.");
+        return;
+    }
+
+    if (isNaN(unidades) || unidades < 0) {
+        alert("Las unidades deben ser un número mayor o igual a 0.");
+        return;
+    }
+
+    // Si no se ha ingresado imagen, asignamos la imagen por defecto
+    if (imagen === "") {
+        imagen = imagenPorDefecto;
+    }
+
+    // Crear el JSON del producto
+    var productoJson = {
+        "nombre": nombre,
+        "marca": marca,
+        "modelo": modelo,
+        "precio": precio,
+        "detalles": detalles,
+        "unidades": unidades,
+        "imagen": imagen
+    };
+
+    // Convertimos el JSON a cadena
+    var productoJsonString = JSON.stringify(productoJson, null, 2);
+
+    // Enviar los datos al servidor
     var client = getXMLHttpRequest();
     client.open('POST', './backend/create.php', true);
     client.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
     client.onreadystatechange = function () {
         if (client.readyState == 4 && client.status == 200) {
-            console.log(client.responseText);
+            let respuesta = JSON.parse(client.responseText);
+            if (respuesta.mensaje) {
+                // Mostramos el mensaje recibido del servidor
+                alert(respuesta.mensaje); 
+            } else {
+                alert("Hubo un problema con la respuesta del servidor.");
+            }
         }
     };
     client.send(productoJsonString);
 }
+
 
 // SE CREA EL OBJETO DE CONEXIÓN COMPATIBLE CON EL NAVEGADOR
 function getXMLHttpRequest() {
