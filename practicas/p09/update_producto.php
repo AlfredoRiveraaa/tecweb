@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validar que los campos no estén vacíos
     if (empty($nombre) || empty($marca) || empty($modelo) || empty($precio) || empty($detalles) || empty($unidades) || empty($imagen)) {
-        die("<p>Error: Todos los campos son obligatorios.</p><a href='formulario_productos.html'>Volver al formulario</a>");
+        die("<p>Error: Todos los campos son obligatorios.</p><a href='formulario_productos_v2.php'>Volver al formulario</a>");
     }
 
     // Verificar si el producto existe en la base de datos
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $result->fetch_assoc();
 
     if ($row["total"] == 0) {
-        die("<p>Error: El producto con ID $id no existe en la base de datos.</p><a href='formulario_productos.html'>Volver al formulario</a>");
+        die("<p>Error: El producto con ID $id no existe en la base de datos.</p><a href='formulario_productos_v2.php'>Volver al formulario</a>");
     }
 
     // Query de actualización
@@ -55,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p><strong>Detalles:</strong> $detalles</p>";
         echo "<p><strong>Unidades disponibles:</strong> $unidades</p>";
         echo "<p><strong>Imagen:</strong> <img src='$imagen' width='100'></p>";
-        echo "<a href='formulario_productos.html'>Actualizar otro producto</a>";
+        echo "<a href='formulario_productos_v2.php'>Actualizar otro producto</a>";
     } else {
         echo "<p>Error al actualizar el producto: " . $stmt->error . "</p>";
-        echo "<a href='formulario_productos.html'>Volver al formulario</a>";
+        echo "<a href='formulario_productos_v2.php'>Volver al formulario</a>";
     }
 
     // Cerrar conexión
