@@ -11,7 +11,9 @@ $(document).ready(function () {
             type: 'GET',
             success: function (response) {
                 const productos = JSON.parse(response);
-
+                console.log("Respuesta cruda:", response); // Depuración
+                 try {
+                     const productos = JSON.parse(response);
                 if (Object.keys(productos).length > 0) {
                     let template = '';
 
@@ -38,7 +40,15 @@ $(document).ready(function () {
                     });
                     $('#products').html(template);
                 }
+            } catch (e) {
+                console.error("Error al parsear JSON:", e, "Respuesta:", response);
+                $('#product-result').show();
+                $('#container').html('<li style="list-style: none;">Error al procesar los datos del servidor</li>');
             }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error en la solicitud:", status, error);
+        }
         });
     }
 
