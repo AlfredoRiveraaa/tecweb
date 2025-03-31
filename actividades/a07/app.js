@@ -239,28 +239,45 @@ $(document).ready(function () {
 
         const url = edit === false ? './backend/product-add.php' : './backend/product-edit.php';
 
-        $.post(url, postData, (response) => {
-            let respuesta = JSON.parse(response);
-            let template_bar = '';
-            template_bar += `
-                        <li style="list-style: none;">status: ${respuesta.status}</li>
-                        <li style="list-style: none;">message: ${respuesta.message}</li>
-                    `;
-            $('#name').val('');
-            $('#marca').val('');
-            $('#modelo').val('');
-            $('#precio').val('');
-            $('#detalles').val('');
-            $('#unidades').val('');
-            $('#imagen').val('');
-            $('#product-result').show();
-            $('#container').html(template_bar);
-            listarProductos();
-
-            // Cambiar el texto del botón a "Agregar Producto"
-            $('button.btn-primary').text("Agregar Producto");
-
-            edit = false;
+        // Cambiamos a enviar los datos como FormData
+        $.ajax({
+            url: url,
+            type: 'POST',
+            contentType: 'application/json', // Indicamos que enviamos JSON
+            data: JSON.stringify(postData), // Convertimos a JSON
+            dataType: 'json', // Esperamos JSON en la respuesta
+            success: function(response) {
+                console.log("Respuesta del servidor:", response); // Para depuración
+                let template_bar = '';
+                template_bar += `
+                    <li style="list-style: none;">status: ${response.status}</li>
+                    <li style="list-style: none;">message: ${response.message}</li>
+                `;
+                $('#product-result').show();
+                $('#container').html(template_bar);
+                
+                if(response.status === 'success') {
+                    // Limpiar formulario solo si fue exitoso
+                    $('#name').val('');
+                    $('#marca').val('');
+                    $('#modelo').val('');
+                    $('#precio').val('');
+                    $('#detalles').val('');
+                    $('#unidades').val('');
+                    $('#imagen').val('');
+                    listarProductos();
+                    
+                    // Cambiar el texto del botón si estaba en modo edición
+                    $('button.btn-primary').text("Agregar Producto");
+                    edit = false;
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error en la solicitud:", status, error);
+                console.log("Respuesta completa:", xhr.responseText);
+                $('#product-result').show();
+                $('#container').html('<li style="list-style: none;">Error al comunicarse con el servidor</li>');
+            }
         });
     });
 
