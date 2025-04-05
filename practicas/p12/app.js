@@ -142,7 +142,7 @@ $(document).ready(function(){
             errorMessage += "El nombre del producto no puede estar vacío o ser mayor a 100 caracteres\n";
         }
 
-        if (!["Logitech", "Nvidia", "HyperX", "NZXT"].includes(postData['marca'])) {
+        if (!["Samsung", "Xiaomi", "Logitech G", "Sony"].includes(postData['marca'])) {
             valid = false;
             errorMessage += "La marca del producto no es válida\n";
         }
