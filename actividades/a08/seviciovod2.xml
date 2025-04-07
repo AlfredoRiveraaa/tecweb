@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servicio_vod>
+    <cuenta correo="alfredo_rivera@gmail.com">
+        <perfiles>
+            <perfil nombre="Ángel" idioma="es"/>
+            <perfil nombre="Alfredo" idioma="en"/>
+        </perfiles>
+    </cuenta>
+    <contenido>
+        <peliculas>
+            <genero nombre="Acción">
+                <titulo nombre="John Wick" duracion="1h 41m"/>
+                <titulo nombre="Top Gun: Maverick" duracion="2h 11m"/>
+                <titulo nombre="Misión Imposible" duracion="2h 43m"/>
+                <titulo nombre="Mad Max" duracion="2h"/>
+            </genero>
+            <genero nombre="Terror">
+                <titulo nombre="El Resplandor" duracion="2h 26m"/>
+                <titulo nombre="Scream" duracion="1h 51m"/>
+                <titulo nombre="Halloween" duracion="1h 31m"/>
+                <titulo nombre="Hereditary" duracion="2h 7m"/>
+            </genero>
+        </peliculas>
+        <programas>
+            <genero nombre="Drama">
+                <titulo nombre="Breaking Bad" duracion="62 episodios"/>
+                <titulo nombre="The Sopranos" duracion="86 episodios"/>
+                <titulo nombre="Succession" duracion="39 episodios"/>
+                <titulo nombre="Chernobyl" duracion="5 episodios"/>
+            </genero>
+            <genero nombre="Ciencia Ficción">
+                <titulo nombre="Stranger Things" duracion="34 episodios"/>
+                <titulo nombre="Dark" duracion="26 episodios"/>
+                <titulo nombre="The Last of Us" duracion="9 episodios"/>
+                <titulo nombre="The Witcher" duracion="24 episodios"/>
+            </genero>
+        </programas>
+    </contenido>
+</servicio_vod>

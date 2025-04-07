@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servicio_vod>
+    <cuenta>
+        <correo>alfredo_rivera@gmail.com</correo>
+        <perfiles>
+            <perfil>
+                <nombre_usuario>Ángel</nombre_usuario>
+                <idioma>es</idioma>
+            </perfil>
+            <perfil>
+                <nombre_usuario>Alfredo</nombre_usuario>
+                <idioma>en</idioma>
+            </perfil>
+        </perfiles>
+    </cuenta>
+    <contenido>
+        <peliculas>
+            <genero>
+                <nombre>Acción</nombre>
+                <titulo>
+                    <nombre>John Wick</nombre>
+                    <duracion>1h 41m</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Top Gun: Maverick</nombre>
+                    <duracion>2h 11m</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Misión Imposible</nombre>
+                    <duracion>2h 43h</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Mad Max</nombre>
+                    <duracion>2h</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Terror</nombre>
+                <titulo>
+                    <nombre>El Resplandor</nombre>
+                    <duracion>2h 26m</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Scream</nombre>
+                    <duracion>1h 51m</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Halloween</nombre>
+                    <duracion>1h 31m</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Hereditary</nombre>
+                    <duracion>2h 7m</duracion>
+                </titulo>
+            </genero>
+        </peliculas>
+        <programas>
+            <genero>
+                <nombre>Drama</nombre>
+                <titulo>
+                    <nombre>Breaking Bad</nombre>
+                    <duracion>62 episodios</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>The Sopranos</nombre>
+                    <duracion>86 episodios</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Succession</nombre>
+                    <duracion>39 episodios</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Chernobyl</nombre>
+                    <duracion>5 episodios</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Ciencia Ficción</nombre>
+                <titulo>
+                    <nombre>Stranger Things</nombre>
+                    <duracion>34 episodios</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Dark</nombre>
+                    <duracion>26 episodios</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>The Last of Us</nombre>
+                    <duracion>9 episodios</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>The Witcher</nombre>
+                    <duracion>24 episodios</duracion>
+                </titulo>
+            </genero>
+        </programas>
+    </contenido>
+</servicio_vod>
